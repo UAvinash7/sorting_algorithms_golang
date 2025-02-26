@@ -3,6 +3,8 @@
 1. In each cycle an item is compared with all other elements preceeding it, in reverse order.
 2. If the element is smaller than the compared element, this compared one is shifted to right.
 3. Otherwise, the element is inserted next to the compared item.
+Time Complexity- O(n) in best case and O(n^2) in worst case i.e., when elements are in descending order and you want to arrange it in ascending order.
+Space Complexity- O(n)
 
 */
 
