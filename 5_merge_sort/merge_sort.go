@@ -7,5 +7,20 @@
 
 */
 
-rc.cpgrams@epfindia.gov.in
+package main
+
+func linearSearch(){
+
+}
+
+func main() {
+	var numberOfElements, temporaryVariable int
+	fmt.Println("Enter the value of number of elements:")
+	fmt.Scanf("%d\n", &numberOfElements)
+	var arr = make([]int, numberOfElements)
+	for i := 0; i < numberOfElements; i++ {
+		fmt.Printf("Enter the value of %d element\n")
+		fmt.Scanf("%d\n", &temporaryVariable)
+	}
+}
 
