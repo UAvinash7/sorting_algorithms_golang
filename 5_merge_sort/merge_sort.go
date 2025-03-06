@@ -9,18 +9,35 @@
 
 package main
 
-func linearSearch(){
+import "fmt"
 
+func linearSearch(inputArray[]int, element *int) {
+	// var i int
+	var found int = 0
+	for i := 0; i < len(inputArray); i++ {
+		if inputArray[i] == *element {
+			fmt.Printf("Element found at index: %d and its position is: %d\n", i, i+1)
+			found = 1
+			break
+		}
+	}
+	if found == 0 {
+		fmt.Println("Element not found in the given array")
+	}
 }
 
 func main() {
-	var numberOfElements, temporaryVariable int
+	var numberOfElements, temporaryVariable, searchElement int
 	fmt.Println("Enter the value of number of elements:")
 	fmt.Scanf("%d\n", &numberOfElements)
 	var arr = make([]int, numberOfElements)
 	for i := 0; i < numberOfElements; i++ {
-		fmt.Printf("Enter the value of %d element\n")
+		fmt.Printf("Enter the value of %d element\n", i)
 		fmt.Scanf("%d\n", &temporaryVariable)
+		arr[i] = temporaryVariable
 	}
+	fmt.Println("arr", arr)
+	fmt.Println("Enter the value of element that is to be searched:")
+	fmt.Scanf("%d\n", &searchElement)
+	linearSearch(arr, &searchElement)
 }
-
