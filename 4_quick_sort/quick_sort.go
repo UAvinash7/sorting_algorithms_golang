@@ -7,3 +7,21 @@
 
 */
 
+package main
+
+import "fmt"
+
+func quickSort(inputArray []int) {}
+
+func main() {
+	var numberOfElements, temporaryVariable int
+	fmt.Println("Enter the value of number of elements:")
+	fmt.Scanf("%d\n", &numberOfElements)
+	var arr = make([]int, numberOfElements)
+	for i := 0; i < numberOfElements; i++ {
+		fmt.Printf("Enter the value of %d element:\n", i)
+		fmt.Scanf("%d\n", &temporaryVariable)
+		arr[i] = temporaryVariable
+	}
+	fmt.Println("arr:", arr)
+}
