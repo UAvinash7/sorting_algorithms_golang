@@ -7,6 +7,8 @@
 
 */
 
+
+/*
 package main
 
 import "fmt"
@@ -41,3 +43,6 @@ func main() {
 	fmt.Scanf("%d\n", &searchElement)
 	linearSearch(arr, &searchElement)
 }
+
+*/
+
