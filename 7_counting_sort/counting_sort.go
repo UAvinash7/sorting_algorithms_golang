@@ -6,3 +6,13 @@
 4. It sorts the array using the counter array.
 
 */
+
+package main
+
+func countingSort() {
+
+}
+
+func main() {
+	
+}
