@@ -1,10 +1,10 @@
 /*
 
 1. It uses divide and conquer.
-2. A pivot item is choosen, determining its final position in the array.
-3. After that smaller items are on the left of the pivot and larger are on the right.
+2. A pivot element is choosen, determining its final position in the array.
+3. After that smaller elements are on the left of the pivot element and larger elements are on the right of the pivot element.
 4. The left and right sub-arrays are processed recursively in the same way.
-Time Complexity- O(n log (n)) in best and average case and O(n ^ 2) in worst case.
+Time Complexity- O(n log (n)) in best and in average case and O(n ^ 2) in worst case.
 Space Complexity- O(n)
 
 */
@@ -25,7 +25,7 @@ func quickSort(inputArray []int, lbound, ubound int) []int {
 func partition(inputArr []int, lowerBound, upperBound int) ([]int, int) {
 	pivotElement := inputArr[lowerBound]
 	start := lowerBound
-	end := upperBound
+	end := upperBound - 1
 	for start < end {
 		for inputArr[start] <= pivotElement {
 			start++
@@ -37,7 +37,9 @@ func partition(inputArr []int, lowerBound, upperBound int) ([]int, int) {
 			inputArr[start], inputArr[end] = inputArr[end], inputArr[start]
 		}
 	}
-	inputArr[lowerBound], inputArr[end] = inputArr[end], inputArr[lowerBound]
+	if start > end {
+		inputArr[lowerBound], inputArr[end] = inputArr[end], inputArr[lowerBound]
+	}
 	return inputArr, end
 }
 
@@ -52,6 +54,6 @@ func main() {
 		userInputArray[i] = temporaryVariable
 	}
 	fmt.Println("user input array:", userInputArray)
-	lb, ub := userInputArray[0], numberOfElements-1
+	lb, ub := 0, numberOfElements-1
 	fmt.Println("Sorted array using quick sort mechanism:", quickSort(userInputArray, lb, ub))
 }

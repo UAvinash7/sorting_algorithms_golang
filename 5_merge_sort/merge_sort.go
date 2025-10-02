@@ -8,50 +8,50 @@
 */
 
 
-/*
 package main
 
 import "fmt"
 
-func linearSearch(inputArray[]int, element *int) {
-	// var i int
-	var found int = 0
-	for i := 0; i < len(inputArray); i++ {
-		if inputArray[i] == *element {
-			fmt.Printf("Element found at index: %d and its position is: %d\n", i, i+1)
-			found = 1
-			break
+// MergeSort is the main function that initiates the merge sort process.
+func MergeSort(arr []int) []int {
+	if len(arr) <= 1 {
+		return arr // Base case: an array with 0 or 1 element is already sorted.
+	}
+
+	mid := len(arr) / 2
+	left := MergeSort(arr[:mid])  // Recursively sort the left half
+	right := MergeSort(arr[mid:]) // Recursively sort the right half
+
+	return merge(left, right) // Merge the sorted halves
+}
+
+// merge combines two sorted arrays into a single sorted array.
+func merge(left, right []int) []int {
+	result := make([]int, 0, len(left)+len(right))
+	i, j := 0, 0
+
+	for i < len(left) && j < len(right) {
+		if left[i] < right[j] {
+			result = append(result, left[i])
+			i++
+		} else {
+			result = append(result, right[j])
+			j++
 		}
 	}
-	if found == 0 {
-		fmt.Println("Element not found in the given array")
-	}
+
+	// Append any remaining elements from the left slice
+	result = append(result, left[i:]...)
+	// Append any remaining elements from the right slice
+	result = append(result, right[j:]...)
+
+	return result
 }
 
 func main() {
-	var numberOfElements, temporaryVariable, searchElement int
-	fmt.Println("Enter the value of number of elements:")
-	fmt.Scanf("%d\n", &numberOfElements)
-	var arr = make([]int, numberOfElements)
-	for i := 0; i < numberOfElements; i++ {
-		fmt.Printf("Enter the value of %d element\n", i)
-		fmt.Scanf("%d\n", &temporaryVariable)
-		arr[i] = temporaryVariable
-	}
-	fmt.Println("arr", arr)
-	fmt.Println("Enter the value of element that is to be searched:")
-	fmt.Scanf("%d\n", &searchElement)
-	linearSearch(arr, &searchElement)
-}
+	unsortedArray := []int{38, 27, 43, 3, 9, 82, 10}
+	fmt.Println("Unsorted array:", unsortedArray)
 
-*/
-
-package main
-
-func mergeSort(){
-
-}
-
-func main() {
-	
+	sortedArray := MergeSort(unsortedArray)
+	fmt.Println("Sorted array:", sortedArray)
 }
