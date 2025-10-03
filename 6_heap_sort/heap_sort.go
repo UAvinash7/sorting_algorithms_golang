@@ -9,36 +9,39 @@
 
 package main
 
-import "fmt"
-
-func linearSort(inputArray []int, dataElement *int) {
-	var i int
-	//var elementFound int = 0
-	for i = 0; i < len(inputArray); i++ {
-		if inputArray[i] == *dataElement {
-			fmt.Printf("Element found at index: %d and its position is: %d and its value is: %d\n", i, i+1, inputArray[i])
-			//elementFound = 1
-			break
-		}
-	}
-	if i == len(inputArray) {
-		fmt.Println("Element not found")
-	}
+type MaxHeap struct {
+    slice    []int
+    heapSize int
 }
 
-func main() {
-	var numberOfElements, temp, data int
-	fmt.Println("Enter the value of number of elements:")
-	fmt.Scanf("%d\n", &numberOfElements)
-	var arr = make([]int, numberOfElements)
-	for i := 0; i < numberOfElements; i++ {
-		fmt.Printf("Enter the value of %d element:\n", i)
-		fmt.Scanf("%d\n", &temp)
-		arr[i] = temp
-	}
-	fmt.Println("array:", arr)
-	fmt.Println("Enter the value of element that need to be searched in the input array:")
-	fmt.Scanf("%d\n", &data)
-	linearSort(arr, &data)
+func (h *MaxHeap) heapify(length, i int) {
+    largest := i
+    left := 2*i + 1
+    right := 2*i + 2
 
+    if left < length && h.slice[left] > h.slice[largest] {
+        largest = left
+    }
+
+    if right < length && h.slice[right] > h.slice[largest] {
+        largest = right
+    }
+
+    if largest != i {
+        h.slice[i], h.slice[largest] = h.slice[largest], h.slice[i]
+        h.heapify(length, largest)
+    }
+}
+
+func (h *MaxHeap) sort() {
+    length := len(h.slice)
+
+    for i := length/2 - 1; i >= 0; i-- {
+        h.heapify(length, i)
+    }
+
+    for i := length - 1; i >= 0; i-- {
+        h.slice[0], h.slice[i] = h.slice[i], h.slice[0]
+        h.heapify(i, 0)
+    }
 }
