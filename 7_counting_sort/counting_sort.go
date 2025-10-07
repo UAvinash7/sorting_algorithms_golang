@@ -51,3 +51,15 @@ func CountingSort(arr []int) []int {
 
 	return output
 }
+
+func main() {
+	arr := []int{4, 2, 2, 8, 3, 3, 1}
+	sortedArr := CountingSort(arr)
+	fmt.Println("Original array:", arr)
+	fmt.Println("Sorted array:", sortedArr) // Output: [1 2 2 3 3 4 8]
+
+	arr2 := []int{10, 5, 12, 1, 7, 10}
+	sortedArr2 := CountingSort(arr2)
+	fmt.Println("Original array:", arr2)
+	fmt.Println("Sorted array:", sortedArr2) // Output: [1 5 7 10 10 12]
+}
