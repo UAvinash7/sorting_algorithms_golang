@@ -9,6 +9,8 @@
 
 package main
 
+import "fmt"
+
 // CountingSort sorts an array of non-negative integers using the counting sort algorithm.
 func CountingSort(arr []int) []int {
 	if len(arr) == 0 {
