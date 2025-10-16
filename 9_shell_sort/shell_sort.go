@@ -32,3 +32,15 @@ func ShellSort(arr []int) {
 		}
 	}
 }
+
+func main() {
+	data := []int{12, 34, 54, 2, 3}
+	fmt.Println("Unsorted array:", data)
+	ShellSort(data)
+	fmt.Println("Sorted array:", data) // Output: Sorted array: [2 3 12 34 54]
+
+	data2 := []int{9, 8, 7, 6, 5, 4, 3, 2, 1}
+	fmt.Println("Unsorted array:", data2)
+	ShellSort(data2)
+	fmt.Println("Sorted array:", data2) // Output: Sorted array: [1 2 3 4 5 6 7 8 9]
+}
