@@ -62,3 +62,16 @@ func bucketSort(arr []float64) []float64 {
 
 	return result
 }
+
+func main() {
+	data := []float64{0.89, 0.45, 0.67, 0.12, 0.56, 0.99, 0.01, 0.78, 0.34, 0.23}
+	fmt.Println("Original array:", data)
+
+	sortedData := bucketSort(data)
+	fmt.Println("Sorted array:", sortedData)
+
+	data2 := []float64{5.2, 1.1, 9.8, 3.5, 7.0, 2.4, 6.3, 4.7, 8.9}
+	fmt.Println("Original array:", data2)
+	sortedData2 := bucketSort(data2)
+	fmt.Println("Sorted array:", sortedData2)
+}
